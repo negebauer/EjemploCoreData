@@ -19,7 +19,23 @@ class ContactManager {
     }
     
     func fetchContacts() {
+        let sortDescriptor = NSSortDescriptor(key: "nombre", ascending: true)
         let fetchRequest = NSFetchRequest(entityName: "Contacto")
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        if let fetchResults = moc!.executeFetchRequest(fetchRequest, error: nil) as? [Contacto] {
+            contactos = fetchResults
+        }
+    }
+    
+    func fetchContactsWithPredicates(nombre:String, apellido:String, numero:String) {
+        let predicateNombre = NSPredicate(format: "nombre CONTAINS %@", nombre)
+        let predicateApellido = NSPredicate(format: "apellido CONTAINS %@", apellido)
+        let predicateNumero = NSPredicate(format: "numero CONTAINS %@", numero)
+        let predicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predicateNombre, predicateApellido, predicateNumero])
+        let sortDescriptor = NSSortDescriptor(key: "nombre", ascending: true)
+        let fetchRequest = NSFetchRequest(entityName: "Contacto")
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.predicate = predicate
         if let fetchResults = moc!.executeFetchRequest(fetchRequest, error: nil) as? [Contacto] {
             contactos = fetchResults
         }

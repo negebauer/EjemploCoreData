@@ -39,7 +39,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func FetchContactos(sender: AnyObject) {
-        managerContactos.fetchContacts()
+        if (LabelNombre.text != "" || LabelApellido.text != "" || LabelNumero.text != "") {
+            managerContactos.fetchContactsWithPredicates(LabelNombre.text, apellido: LabelApellido.text, numero: LabelNumero.text)
+        }
+        else {
+            managerContactos.fetchContacts()
+        }
+        borrarLabels()
         TablaContactos.reloadData()
     }
     
