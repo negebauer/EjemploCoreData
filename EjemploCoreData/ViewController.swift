@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var delegateTablaContactos : TablaContactosDelegate!
     @IBOutlet weak var TablaContactos: UITableView!
 
     @IBOutlet weak var LabelNombre: UITextField!
