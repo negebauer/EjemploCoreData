@@ -32,14 +32,7 @@ class TablaContactosDelegate: NSObject, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if(editingStyle == .Delete ) {
-            contactManager.borrarContacto(indexPath.row)
-        }
-        tableView.setEditing(false, animated: true)
+        return false
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -49,5 +42,3 @@ class TablaContactosDelegate: NSObject, UITableViewDelegate, UITableViewDataSour
     }
     
 }
-
-//referenciaAlControlador?.TablaNombres.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
