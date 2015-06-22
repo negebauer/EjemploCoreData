@@ -30,13 +30,6 @@ class ContactManager {
         saveDatabase()
     }
     
-    func borrarContacto(index:Int) {
-        if index < contactos.count {
-            moc?.deleteObject(contactos[index])
-        }
-        saveDatabase()
-    }
-    
     func saveDatabase() {
         var error : NSError?
         if(moc!.save(&error) ) {
