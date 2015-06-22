@@ -68,19 +68,25 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fRU-Ba-bCj" id="77E-eH-gbK">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nicolas Eduardo Gebauer Martinez" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDv-GM-JE1">
-                                                    <rect key="frame" x="8" y="14" width="391" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nicolas Eduardo Gebauer Martinez" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDv-GM-JE1">
+                                                    <rect key="frame" x="8" y="14.5" width="268" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+56962448489" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyV-kd-LAp">
-                                                    <rect key="frame" x="407" y="14" width="137" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+56962448489" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyV-kd-LAp">
+                                                    <rect key="frame" x="429" y="14.5" width="115" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WyV-kd-LAp" firstAttribute="trailing" secondItem="77E-eH-gbK" secondAttribute="trailingMargin" id="EKI-sZ-KRd"/>
+                                                <constraint firstItem="fDv-GM-JE1" firstAttribute="leading" secondItem="77E-eH-gbK" secondAttribute="leadingMargin" id="Z0I-fm-sAj"/>
+                                                <constraint firstAttribute="centerY" secondItem="fDv-GM-JE1" secondAttribute="centerY" id="sZq-M0-yDQ"/>
+                                                <constraint firstAttribute="centerY" secondItem="WyV-kd-LAp" secondAttribute="centerY" id="yzU-7w-KfC"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="LabelNombre" destination="fDv-GM-JE1" id="uaB-gX-9bX"/>
