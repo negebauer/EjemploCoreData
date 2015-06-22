@@ -28,10 +28,20 @@ class ContactManager {
     }
     
     func fetchContactsWithPredicates(nombre:String, apellido:String, numero:String) {
-        let predicateNombre = NSPredicate(format: "nombre CONTAINS %@", nombre)
-        let predicateApellido = NSPredicate(format: "apellido CONTAINS %@", apellido)
-        let predicateNumero = NSPredicate(format: "numero CONTAINS %@", numero)
-        let predicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predicateNombre, predicateApellido, predicateNumero])
+        var predicatesArray = [NSPredicate]()
+        if nombre != "" {
+            let predicateNombre = NSPredicate(format: "nombre CONTAINS %@", nombre)
+            predicatesArray.append(predicateNombre)
+        }
+        if apellido != "" {
+            let predicateApellido = NSPredicate(format: "apellido CONTAINS %@", apellido)
+            predicatesArray.append(predicateApellido)
+        }
+        if numero != "" {
+            let predicateNumero = NSPredicate(format: "numero CONTAINS %@", numero)
+            predicatesArray.append(predicateNumero)
+        }
+        let predicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predicatesArray])
         let sortDescriptor = NSSortDescriptor(key: "nombre", ascending: true)
         let fetchRequest = NSFetchRequest(entityName: "Contacto")
         fetchRequest.sortDescriptors = [sortDescriptor]
