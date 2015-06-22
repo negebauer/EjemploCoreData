@@ -35,4 +35,10 @@ class TablaContactosDelegate: NSObject, UITableViewDelegate, UITableViewDataSour
         return false
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if(editingStyle == .Delete ) {
+            
+        }
+    }
+    
 }
