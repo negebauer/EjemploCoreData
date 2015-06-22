@@ -42,12 +42,4 @@ class TablaContactosDelegate: NSObject, UITableViewDelegate, UITableViewDataSour
         tableView.setEditing(false, animated: true)
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if(editingStyle == .Delete ) {
-            
-        }
-    }
-    
 }
-
-//referenciaAlControlador?.TablaNombres.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
