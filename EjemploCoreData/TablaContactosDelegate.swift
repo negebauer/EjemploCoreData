@@ -9,9 +9,13 @@
 import UIKit
 
 class TablaContactosDelegate: NSObject, UITableViewDelegate, UITableViewDataSource {
+    weak var contactManager : ContactManager!
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let c = tableView.dequeueReusableCellWithIdentifier("IDCeldaContacto") as! CeldaContacto
+        let contacto = contactManager.contactos[indexPath.row]
+        c.LabelNumero.text = contacto.numero
+        c.LabelNombre.text = contacto.nombre + " " + (contacto.apellido)
         return c
     }
     
@@ -20,7 +24,7 @@ class TablaContactosDelegate: NSObject, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0 //cambiar
+        return contactManager.contactos.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -29,12 +33,6 @@ class TablaContactosDelegate: NSObject, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if(editingStyle == .Delete ) {
-            
-        }
     }
     
 }

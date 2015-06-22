@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
+    var managerContactos = ContactManager()
+    var delegateTablaContactos : TablaContactosDelegate!
+    
     @IBOutlet weak var TablaContactos: UITableView!
 
     @IBOutlet weak var LabelNombre: UITextField!
@@ -17,7 +21,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        delegateTablaContactos = TablaContactosDelegate()
+        delegateTablaContactos.contactManager = managerContactos
+        TablaContactos.delegate = delegateTablaContactos
+        TablaContactos.dataSource = delegateTablaContactos
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,12 +34,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func AgregarNuevoContacto(sender: AnyObject) {
-    
+        managerContactos.agregarNuevoContacto(LabelNombre.text, apellido: LabelApellido.text, numero: LabelNumero.text)
+        borrarLabels()
     }
     
     @IBAction func FetchContactos(sender: AnyObject) {
-    
+        managerContactos.fetchContacts()
+        TablaContactos.reloadData()
     }
-
+    
+    func borrarLabels() {
+        LabelNombre.text = ""
+        LabelApellido.text = ""
+        LabelNumero.text = ""
+    }
 }
 

@@ -16,6 +16,8 @@
 		03CA4AD71B323897009BEA1B /* EjemploCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA4AD61B323897009BEA1B /* EjemploCoreDataTests.swift */; };
 		03E8E81F1B37272900ACE454 /* CeldaContacto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E8E81E1B37272900ACE454 /* CeldaContacto.swift */; };
 		03E8E8211B37276C00ACE454 /* TablaContactosDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E8E8201B37276C00ACE454 /* TablaContactosDelegate.swift */; };
+		03E8E8271B377CE600ACE454 /* Contacto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E8E8261B377CE600ACE454 /* Contacto.swift */; };
+		03E8E8291B37807600ACE454 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E8E8281B37807600ACE454 /* ContactManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		03CA4AD61B323897009BEA1B /* EjemploCoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EjemploCoreDataTests.swift; sourceTree = "<group>"; };
 		03E8E81E1B37272900ACE454 /* CeldaContacto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeldaContacto.swift; sourceTree = "<group>"; };
 		03E8E8201B37276C00ACE454 /* TablaContactosDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablaContactosDelegate.swift; sourceTree = "<group>"; };
+		03E8E8261B377CE600ACE454 /* Contacto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacto.swift; sourceTree = "<group>"; };
+		03E8E8281B37807600ACE454 /* ContactManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,11 +89,13 @@
 			children = (
 				03CA4ABD1B323897009BEA1B /* AppDelegate.swift */,
 				03CA4AC21B323897009BEA1B /* ViewController.swift */,
+				03E8E8281B37807600ACE454 /* ContactManager.swift */,
 				03E8E8201B37276C00ACE454 /* TablaContactosDelegate.swift */,
 				03E8E81E1B37272900ACE454 /* CeldaContacto.swift */,
 				03CA4AC41B323897009BEA1B /* Main.storyboard */,
 				03CA4AC71B323897009BEA1B /* Images.xcassets */,
 				03CA4AC91B323897009BEA1B /* LaunchScreen.xib */,
+				03E8E8261B377CE600ACE454 /* Contacto.swift */,
 				03CA4ABF1B323897009BEA1B /* EjemploCoreData.xcdatamodeld */,
 				03CA4ABB1B323897009BEA1B /* Supporting Files */,
 			);
@@ -221,8 +227,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E8E8291B37807600ACE454 /* ContactManager.swift in Sources */,
 				03CA4AC31B323897009BEA1B /* ViewController.swift in Sources */,
 				03CA4ABE1B323897009BEA1B /* AppDelegate.swift in Sources */,
+				03E8E8271B377CE600ACE454 /* Contacto.swift in Sources */,
 				03E8E8211B37276C00ACE454 /* TablaContactosDelegate.swift in Sources */,
 				03E8E81F1B37272900ACE454 /* CeldaContacto.swift in Sources */,
 				03CA4AC11B323897009BEA1B /* EjemploCoreData.xcdatamodeld in Sources */,
