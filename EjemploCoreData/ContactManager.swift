@@ -41,7 +41,7 @@ class ContactManager {
             let predicateNumero = NSPredicate(format: "numero CONTAINS %@", numero)
             predicatesArray.append(predicateNumero)
         }
-        let predicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predicatesArray])
+        let predicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: predicatesArray)
         let sortDescriptor = NSSortDescriptor(key: "nombre", ascending: true)
         let fetchRequest = NSFetchRequest(entityName: "Contacto")
         fetchRequest.sortDescriptors = [sortDescriptor]
