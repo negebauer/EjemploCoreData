@@ -34,5 +34,10 @@ class ViewController: UIViewController {
     
     }
 
+    func borrarLabels() {
+        LabelNombre.text = ""
+        LabelApellido.text = ""
+        LabelNumero.text = ""
+    }
 }
 
