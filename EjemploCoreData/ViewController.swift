@@ -9,50 +9,81 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     var managerContactos = ContactManager()
     var delegateTablaContactos : TablaContactosDelegate!
     
     @IBOutlet weak var TablaContactos: UITableView!
 
-    @IBOutlet weak var LabelNombre: UITextField!
-    @IBOutlet weak var LabelApellido: UITextField!
-    @IBOutlet weak var LabelNumero: UITextField!
+    @IBOutlet weak var TextFieldNombre: UITextField!
+    @IBOutlet weak var TextFieldApellido: UITextField!
+    @IBOutlet weak var TextFieldNumero: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         delegateTablaContactos = TablaContactosDelegate()
+        delegateTablaContactos.referenciaAlViewController = self
         delegateTablaContactos.contactManager = managerContactos
         TablaContactos.delegate = delegateTablaContactos
         TablaContactos.dataSource = delegateTablaContactos
+        
+        TextFieldApellido.delegate = self
+        TextFieldNombre.delegate = self
+        TextFieldNumero.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func AgregarNuevoContacto(sender: AnyObject) {
-        managerContactos.agregarNuevoContacto(LabelNombre.text, apellido: LabelApellido.text, numero: LabelNumero.text)
-        borrarLabels()
+        managerContactos.agregarNuevoContacto(TextFieldNombre.text, apellido: TextFieldApellido.text, numero: TextFieldNumero.text)
+        managerContactos.fetchContacts()
+        TablaContactos.reloadData()
+        borrarTextFields()
     }
     
     @IBAction func FetchContactos(sender: AnyObject) {
-        if (LabelNombre.text != "" || LabelApellido.text != "" || LabelNumero.text != "") {
-            managerContactos.fetchContactsWithPredicates(LabelNombre.text, apellido: LabelApellido.text, numero: LabelNumero.text)
+        if (TextFieldNombre.text != "" || TextFieldApellido.text != "" || TextFieldNumero.text != "") {
+            managerContactos.fetchContactsWithPredicates(TextFieldNombre.text, apellido: TextFieldApellido.text, numero: TextFieldNumero.text)
         }
         else {
             managerContactos.fetchContacts()
         }
-        borrarLabels()
+        borrarTextFields()
         TablaContactos.reloadData()
     }
     
-    func borrarLabels() {
-        LabelNombre.text = ""
-        LabelApellido.text = ""
-        LabelNumero.text = ""
+    func borrarTextFields() {
+        TextFieldNombre.text = ""
+        TextFieldApellido.text = ""
+        TextFieldNumero.text = ""
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == TextFieldNumero {
+            textField.resignFirstResponder()
+        }
+        else if textField == TextFieldNombre {
+            textField.resignFirstResponder()
+            TextFieldApellido.select(self)
+        }
+        else if textField == TextFieldApellido {
+            textField.resignFirstResponder()
+            TextFieldNumero.select(self)
+        }
+        return true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == nil {
+            return
+        }
+        if segue.identifier == "IDMostrarAutosContacto" {
+            let vistaAutos = segue.destinationViewController as! ViewControllerAutos
+            vistaAutos.dueno = delegateTablaContactos.contactoAMostrarAutos
+        }
     }
 }
 
