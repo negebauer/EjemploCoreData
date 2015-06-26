@@ -1,23 +1,21 @@
 //
-//  TablaContactosDelegate.swift
+//  TablaAutosDelegate.swift
 //  EjemploCoreData
 //
-//  Created by Nicolás Gebauer on 21-06-15.
+//  Created by Nicolás Gebauer on 26-06-15.
 //  Copyright (c) 2015 Nicolás Gebauer. All rights reserved.
 //
 
 import UIKit
 
-class TablaContactosDelegate: NSObject, UITableViewDelegate, UITableViewDataSource {
-    weak var contactManager : ContactManager!
-    var contactoAMostrarAutos : Contacto!
-    weak var referenciaAlViewController: ViewController!
+class TablaAutosDelegate: NSObject, UITableViewDelegate, UITableViewDataSource {
+    weak var autosManager : AutosManager!
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let c = tableView.dequeueReusableCellWithIdentifier("IDCeldaContacto") as! CeldaContacto
-        let contacto = contactManager.contactos[indexPath.row]
-        c.LabelNumero.text = contacto.numero
-        c.LabelNombre.text = contacto.nombre + " " + (contacto.apellido)
+        let c = tableView.dequeueReusableCellWithIdentifier("IDCeldaAuto") as! CeldaAuto
+        let auto = autosManager.autos[indexPath.row]
+        c.LabelNombre.text = "\(auto.marca) \(auto.modelo) \(auto.ano)"
+        c.LabelKM.text = "\(auto.kilometraje.stringValue) km"
         return c
     }
     
@@ -26,13 +24,11 @@ class TablaContactosDelegate: NSObject, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactManager.contactos.count
+        return autosManager.autos.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        contactoAMostrarAutos = contactManager.contactos[indexPath.row]
-        referenciaAlViewController.performSegueWithIdentifier("IDMostrarAutosContacto", sender: referenciaAlViewController)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -41,7 +37,7 @@ class TablaContactosDelegate: NSObject, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == .Delete) {
-            contactManager.borrarContacto(indexPath.row)
+            autosManager.borrarAuto(indexPath.row)
         }
         tableView.setEditing(false, animated: true)
     }
