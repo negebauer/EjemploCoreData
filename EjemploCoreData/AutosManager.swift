@@ -32,19 +32,19 @@ class AutosManager {
         let kmInt = km.toInt()
         var predicatesArray = [NSPredicate]()
         if marca != "" {
-            let predicateMarca = NSPredicate(format: "nombre CONTAINS %@", marca)
+            let predicateMarca = NSPredicate(format: "marca CONTAINS %@", marca)
             predicatesArray.append(predicateMarca)
         }
         if modelo != "" {
-            let predicateModelo = NSPredicate(format: "apellido CONTAINS %@", modelo)
+            let predicateModelo = NSPredicate(format: "modelo CONTAINS %@", modelo)
             predicatesArray.append(predicateModelo)
         }
         if ano != "" {
-            let predicateAno = NSPredicate(format: "numero CONTAINS %@", ano)
+            let predicateAno = NSPredicate(format: "ano CONTAINS %@", ano)
             predicatesArray.append(predicateAno)
         }
         if kmInt != nil {
-            let predicateKM = NSPredicate(format: "numero == %i", kmInt!)
+            let predicateKM = NSPredicate(format: "kilometraje == %i", kmInt!)
             predicatesArray.append(predicateKM)
         }
         let predicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: predicatesArray)
