@@ -38,6 +38,7 @@
 /* Begin PBXFileReference section */
 		0370878D1B3899620080C080 /* Auto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auto.swift; sourceTree = "<group>"; };
 		0370878F1B389B1C0080C080 /* Contacto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacto.swift; sourceTree = "<group>"; };
+		0380C0EA1B4CD32100E68C9D /* EjemploCoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EjemploCoreData 2.xcdatamodel"; sourceTree = "<group>"; };
 		03CA4AB81B323897009BEA1B /* EjemploCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EjemploCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CA4ABC1B323897009BEA1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03CA4ABD1B323897009BEA1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -466,9 +467,10 @@
 		03CA4ABF1B323897009BEA1B /* EjemploCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0380C0EA1B4CD32100E68C9D /* EjemploCoreData 2.xcdatamodel */,
 				03CA4AC01B323897009BEA1B /* EjemploCoreData.xcdatamodel */,
 			);
-			currentVersion = 03CA4AC01B323897009BEA1B /* EjemploCoreData.xcdatamodel */;
+			currentVersion = 0380C0EA1B4CD32100E68C9D /* EjemploCoreData 2.xcdatamodel */;
 			path = EjemploCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

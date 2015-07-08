@@ -16,6 +16,7 @@ class Auto: NSManagedObject {
     @NSManaged var ano: String
     @NSManaged var kilometraje: NSNumber
     @NSManaged var dueno: Contacto?
+    @NSManaged var patenteString:String
 
     class func new(moc: NSManagedObjectContext, _marca:String, _modelo:String, _ano:String, _kilometraje:Int) -> Auto {
         let newAuto = NSEntityDescription.insertNewObjectForEntityForName("Auto", inManagedObjectContext: moc) as! EjemploCoreData.Auto
@@ -34,5 +35,10 @@ class Auto: NSManagedObject {
     
     func asignarDueno(contacto:Contacto) {
         dueno = contacto
+    }
+    
+    var patente: String {
+        get { return patenteString }
+        set { patenteString = newValue }
     }
 }
