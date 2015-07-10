@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Celda que muestra la información de un Auto.
 class CeldaAuto: UITableViewCell {
     @IBOutlet weak var LabelNombre: UILabel!
     @IBOutlet weak var LabelKM: UILabel!

@@ -9,13 +9,16 @@
 import Foundation
 import CoreData
 
+/// Clase Contacto para manejar las entidades de tipo Contacto de la base de datos.
 class Contacto: NSManagedObject {
 
+    // Los atributos del Contacto.
     @NSManaged var apellido: String
     @NSManaged var nombre: String
     @NSManaged var numero: String
     @NSManaged var autos: NSSet
 
+    /// Crea un nuevo Contacto, lo agrega a la base de datos, setea los atributos entregados y retorna dicho Contacto.
     class func new(moc: NSManagedObjectContext, _nombre:String, _apellido:String, _numero:String) -> Contacto {
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("Contacto", inManagedObjectContext: moc) as! EjemploCoreData.Contacto
         newItem.nombre = _nombre
@@ -25,6 +28,7 @@ class Contacto: NSManagedObject {
         return newItem
     }
     
+    /// Asigna un Auto al Contacto agregandolo a su Set de Autos y seteando el atributo dueno del Auto para que corresponda al Contacto.
     func darAuto(auto:Auto) {
         var set = autos as! Set<Auto>
         set.insert(auto)
@@ -32,6 +36,7 @@ class Contacto: NSManagedObject {
         autos = set
     }
     
+    /// Quita un Auto al Contacto eliminandolo de su Set de Autos y setenado el atributo dueno del Auto a nil.
     func quitarAuto(auto:Auto) {
         var set = autos as! Set<Auto>
         if set.contains(auto) {

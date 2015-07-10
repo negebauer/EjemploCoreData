@@ -9,13 +9,16 @@
 import CoreData
 import UIKit
 
+/// Vista de la lista de Autos junto con los TextFields que le corresponden.
 class ViewControllerAutos: UIViewController, UITextFieldDelegate  {
     var managerAutos = AutosManager()
     var delegateTablaAutos : TablaAutosDelegate!
     var dueno : Contacto!
     
+    // Referencia al TableView de autos
     @IBOutlet weak var TablaAutos: UITableView!
     
+    // Los distintos TextField que el usuario va a llenar
     @IBOutlet weak var LabelNombreDueno: UILabel!
     @IBOutlet weak var TextFieldMarca: UITextField!
     @IBOutlet weak var TextFieldModelo: UITextField!
@@ -28,6 +31,7 @@ class ViewControllerAutos: UIViewController, UITextFieldDelegate  {
         managerAutos.dueno = dueno
         delegateTablaAutos = TablaAutosDelegate()
         delegateTablaAutos.autosManager = managerAutos
+        delegateTablaAutos.referenciaALaTablaAutos = TablaAutos
         TablaAutos.delegate = delegateTablaAutos
         TablaAutos.dataSource = delegateTablaAutos
         
@@ -46,6 +50,13 @@ class ViewControllerAutos: UIViewController, UITextFieldDelegate  {
         super.didReceiveMemoryWarning()
     }
     @IBAction func AgregarNuevoAuto(sender: AnyObject) {
+        if TextFieldKM.text != "" && TextFieldKM.text.toInt() == nil {
+            let alertController = UIAlertController(title: "Información incorrecta", message:"Escribe solo un numero en kilometraje, o déjalo vacio para que sea 0 automaticamente", preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "ok", style: .Default, handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+            return
+        }
+        
         managerAutos.agregarNuevoAuto(TextFieldMarca.text, modelo: TextFieldModelo.text, ano: TextFieldAno.text, km: TextFieldKM.text)
         managerAutos.fetchAutos()
         TablaAutos.reloadData()

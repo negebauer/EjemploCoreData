@@ -8,16 +8,33 @@
 
 import UIKit
 
+/// Delegate de la tabla de contactos.
+/// Maneja la visualizacion de los contactos, el acceso a sus autos y la eliminacion de contactos.
 class TablaContactosDelegate: NSObject, UITableViewDelegate, UITableViewDataSource {
+    // Referencia al manager de contactos.
     weak var contactManager : ContactManager!
-    var contactoAMostrarAutos : Contacto!
-    weak var referenciaAlViewController: ViewController!
     
+    // Si hacemos clic en un contacto, seteamos aqui para saber de donde obtener los Autos.
+    var contactoAMostrarAutos : Contacto!
+    
+    // Referencia al view controller de contactos. La usamos para el segue.
+    weak var referenciaAlViewController: ViewController!
+
+    // Referencia a la tabla de contactos.
+    weak var referenciaALaTablaContactos : UITableView!
+    
+    /// Seteamos cada celda de Contacto.
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let c = tableView.dequeueReusableCellWithIdentifier("IDCeldaContacto") as! CeldaContacto
+        
+        // El contacto cuya informacion mostraremos para un indice dado.
         let contacto = contactManager.contactos[indexPath.row]
+        
+        // Seteamos la informacion a mostrar.
         c.LabelNumero.text = contacto.numero
         c.LabelNombre.text = contacto.nombre + " " + (contacto.apellido)
+        
+        // Retornamos la celda a mostrar.
         return c
     }
     
@@ -31,7 +48,11 @@ class TablaContactosDelegate: NSObject, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        
+        // Nos preparamos para mostrar los autos del contacto seleccionado.
         contactoAMostrarAutos = contactManager.contactos[indexPath.row]
+        
+        // Cambiamos a la vista de los autos de este contacto.
         referenciaAlViewController.performSegueWithIdentifier("IDMostrarAutosContacto", sender: referenciaAlViewController)
     }
     
@@ -41,7 +62,14 @@ class TablaContactosDelegate: NSObject, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == .Delete) {
+            // Le decimos al manager de contactos que elimine este contacto de la base de datos.
             contactManager.borrarContacto(indexPath.row)
+            
+            // Actualizamos la lista de contactos.
+            contactManager.fetchContacts()
+            
+            // Recargamos la tabla para mostrar la nueva lista de contactos.
+            referenciaALaTablaContactos.reloadData()
         }
         tableView.setEditing(false, animated: true)
     }

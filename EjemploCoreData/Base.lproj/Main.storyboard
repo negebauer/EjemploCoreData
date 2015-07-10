@@ -166,7 +166,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Año" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ogJ-xe-Htm">
                                 <rect key="frame" x="24" y="148" width="276" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSP-IW-w4r">
                                 <rect key="frame" x="24" y="186" width="552" height="30"/>
@@ -296,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rt-rd-e5w" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2919" y="361"/>
+            <point key="canvasLocation" x="2833" y="361"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MPs-sy-jhp">
@@ -314,7 +314,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LAl-3Y-5oC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1357" y="361"/>
+            <point key="canvasLocation" x="1502" y="361"/>
         </scene>
     </scenes>
 </document>

@@ -9,8 +9,10 @@
 import Foundation
 import CoreData
 
+/// Clase Auto para manejar las entidades de tipo Auto de la base de datos.
 class Auto: NSManagedObject {
 
+    // Los atributos del Auto.
     @NSManaged var marca: String
     @NSManaged var modelo: String
     @NSManaged var ano: String
@@ -18,6 +20,7 @@ class Auto: NSManagedObject {
     @NSManaged var dueno: Contacto?
     @NSManaged var patenteString:String
 
+    /// Crea un nuevo Auto, lo agrega a la base de datos, setea los atributos entregados y retorna dicho Auto.
     class func new(moc: NSManagedObjectContext, _marca:String, _modelo:String, _ano:String, _kilometraje:Int) -> Auto {
         let newAuto = NSEntityDescription.insertNewObjectForEntityForName("Auto", inManagedObjectContext: moc) as! EjemploCoreData.Auto
         
@@ -29,14 +32,17 @@ class Auto: NSManagedObject {
         return newAuto
     }
     
+    /// Elimina el dueno de este Auto, nulificandolo.
     func eliminarDueno() {
         dueno = nil
     }
     
+    /// Asigna el dueno contacto a este Auto.
     func asignarDueno(contacto:Contacto) {
         dueno = contacto
     }
     
+    /// Permite acceder a la patente de este Auto y/o modificarla.
     var patente: String {
         get { return patenteString }
         set { patenteString = newValue }

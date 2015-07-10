@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Celda que muestra la información de un Contacto.
 class CeldaContacto: UITableViewCell {
     @IBOutlet weak var LabelNombre: UILabel!
     @IBOutlet weak var LabelNumero: UILabel!
