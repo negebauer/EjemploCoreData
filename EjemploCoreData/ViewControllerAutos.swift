@@ -29,12 +29,17 @@ class ViewControllerAutos: UIViewController, UITextFieldDelegate  {
         super.viewDidLoad()
         
         managerAutos.dueno = dueno
+        
+        // Creamos nuestro delegate y le damos las referencias apropiadas
         delegateTablaAutos = TablaAutosDelegate()
         delegateTablaAutos.autosManager = managerAutos
         delegateTablaAutos.referenciaALaTablaAutos = TablaAutos
+        
+        // Conectamos nuestra Tabla con nuestro delegate
         TablaAutos.delegate = delegateTablaAutos
         TablaAutos.dataSource = delegateTablaAutos
         
+        // Seteamos el delegate de los TextField para que se pueda pasar de uno a otro apretando Enter
         TextFieldMarca.delegate = self
         TextFieldModelo.delegate = self
         TextFieldAno.delegate = self
@@ -49,7 +54,11 @@ class ViewControllerAutos: UIViewController, UITextFieldDelegate  {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    /// Agrega un nuevo auto a la base de datos con los atributos estipulados en los TextFields.
     @IBAction func AgregarNuevoAuto(sender: AnyObject) {
+        // Verifica que no haya nada incorrecto escrito en el atributo kilometraje.
+        // Termina la funcion y muestra si este es el caso.
         if TextFieldKM.text != "" && TextFieldKM.text.toInt() == nil {
             let alertController = UIAlertController(title: "Información incorrecta", message:"Escribe solo un numero en kilometraje, o déjalo vacio para que sea 0 automaticamente", preferredStyle: .Alert)
             alertController.addAction(UIAlertAction(title: "ok", style: .Default, handler: nil))
@@ -57,23 +66,34 @@ class ViewControllerAutos: UIViewController, UITextFieldDelegate  {
             return
         }
         
+        // Llama al manager de autos para que agregue un nuevo auto con los atributos dados
         managerAutos.agregarNuevoAuto(TextFieldMarca.text, modelo: TextFieldModelo.text, ano: TextFieldAno.text, km: TextFieldKM.text)
+        
+        // Vuelve a cargar la lista de autos
         managerAutos.fetchAutos()
+        
+        // Recarga la tabla para mostrar la nueva lista de autos
         TablaAutos.reloadData()
         borrarTextFields()
     }
     
+    /// Hace un fetch de todos los autos. Filtra este busqueda si hay atributos en algun TextField.
     @IBAction func FetchAutos(sender: AnyObject) {
+        // Revisa si hay algun atributo que se tenga que usar para filtrar la busqueda.
         if (TextFieldMarca.text != "" || TextFieldModelo.text != "" || TextFieldAno.text != "" || TextFieldKM.text != "") {
             managerAutos.fetchAutosWithPredicates(TextFieldMarca.text, modelo: TextFieldModelo.text, ano: TextFieldAno.text, km: TextFieldKM.text)
         }
+        // Busca todos los contactos.
         else {
             managerAutos.fetchAutos()
         }
         borrarTextFields()
+        
+        // Recarga la tabla para mostrar la lista de contactos esperada.
         TablaAutos.reloadData()
     }
     
+    /// Borra los TextField para que el usuario no tenga que hacerlo.
     func borrarTextFields() {
         TextFieldMarca.text = ""
         TextFieldModelo.text = ""
@@ -81,6 +101,7 @@ class ViewControllerAutos: UIViewController, UITextFieldDelegate  {
         TextFieldKM.text = ""
     }
     
+    /// Define que hacer cuando se apreta Enter en un TextField. Esto para que el cambio de un TextField al siguiente sea automatico. Si es el ultimo TextField cierra el teclado.
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField == TextFieldKM {
             textField.resignFirstResponder()
