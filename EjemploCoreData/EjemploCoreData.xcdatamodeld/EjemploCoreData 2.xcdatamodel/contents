@@ -6,16 +6,16 @@
         <attribute name="mileage" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="dueno" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contacto" inverseName="autos" inverseEntity="Contacto" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="autos" inverseEntity="Contact" syncable="YES"/>
     </entity>
-    <entity name="Contacto" representedClassName="EjemploCoreData.Contacto" syncable="YES">
-        <attribute name="apellido" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="numero" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="autos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Car" inverseName="dueno" inverseEntity="Car" syncable="YES"/>
+    <entity name="Contact" representedClassName="EjemploCoreData.Contact" syncable="YES">
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="autos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Car" inverseName="owner" inverseEntity="Car" syncable="YES"/>
     </entity>
     <elements>
         <element name="Car" positionX="-36" positionY="36" width="128" height="135"/>
-        <element name="Contacto" positionX="-36" positionY="9" width="128" height="105"/>
+        <element name="Contact" positionX="-36" positionY="9" width="128" height="105"/>
     </elements>
 </model>
