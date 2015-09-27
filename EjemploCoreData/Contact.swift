@@ -10,10 +10,6 @@ import Foundation
 import CoreData
 
 /** Class that represents and manages `Contact` object that is saved in the database.
-- Parameter firstName: The first name of the `Contact`.
-- Parameter surname: The surname of the `Contact`.
-- Parameter number: The phone number of the `Contact`.
-- Parameter cars: The cars that the `Contact` owns.
 
 - Author: Nicolás Gebauer.
 - Date: 22-06-15.
@@ -22,9 +18,13 @@ import CoreData
 */
 class Contact: NSManagedObject {
 
+    /// The first name of the `Contact`.
     @NSManaged var firstName: String
+    /// The surname of the `Contact`.
     @NSManaged var surname: String
+    /// The phone number of the `Contact`.
     @NSManaged var number: String
+    /// The cars that the `Contact` owns.
     @NSManaged var cars: NSSet
 
     /** Creates a new `Contact` in the database and returns it.
