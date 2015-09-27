@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0370878E1B3899620080C080 /* Auto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370878D1B3899620080C080 /* Auto.swift */; };
-		037087901B389B1C0080C080 /* Contacto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370878F1B389B1C0080C080 /* Contacto.swift */; };
+		0370878E1B3899620080C080 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370878D1B3899620080C080 /* Car.swift */; };
+		037087901B389B1C0080C080 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370878F1B389B1C0080C080 /* Contact.swift */; };
 		03CA4ABE1B323897009BEA1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA4ABD1B323897009BEA1B /* AppDelegate.swift */; };
 		03CA4AC11B323897009BEA1B /* EjemploCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03CA4ABF1B323897009BEA1B /* EjemploCoreData.xcdatamodeld */; };
 		03CA4AC31B323897009BEA1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA4AC21B323897009BEA1B /* ViewController.swift */; };
@@ -38,8 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0370878D1B3899620080C080 /* Auto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auto.swift; sourceTree = "<group>"; };
-		0370878F1B389B1C0080C080 /* Contacto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacto.swift; sourceTree = "<group>"; };
+		0370878D1B3899620080C080 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		0370878F1B389B1C0080C080 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		0380C0EA1B4CD32100E68C9D /* EjemploCoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EjemploCoreData 2.xcdatamodel"; sourceTree = "<group>"; };
 		03CA4AB81B323897009BEA1B /* EjemploCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EjemploCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CA4ABC1B323897009BEA1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,8 +114,8 @@
 				03CA4AC41B323897009BEA1B /* Main.storyboard */,
 				03CA4AC71B323897009BEA1B /* Images.xcassets */,
 				03CA4AC91B323897009BEA1B /* LaunchScreen.xib */,
-				0370878F1B389B1C0080C080 /* Contacto.swift */,
-				0370878D1B3899620080C080 /* Auto.swift */,
+				0370878F1B389B1C0080C080 /* Contact.swift */,
+				0370878D1B3899620080C080 /* Car.swift */,
 				03F841941BB864180021DE4D /* Utilities.swift */,
 				03CA4ABF1B323897009BEA1B /* EjemploCoreData.xcdatamodeld */,
 				03CA4ABB1B323897009BEA1B /* Supporting Files */,
@@ -260,9 +260,9 @@
 				03D48FAC1B3D019100A5E9D7 /* ViewControllerAutos.swift in Sources */,
 				03E8E8211B37276C00ACE454 /* TablaContactosDelegate.swift in Sources */,
 				03D48FB01B3D022800A5E9D7 /* CeldaAuto.swift in Sources */,
-				037087901B389B1C0080C080 /* Contacto.swift in Sources */,
+				037087901B389B1C0080C080 /* Contact.swift in Sources */,
 				03E8E81F1B37272900ACE454 /* CeldaContacto.swift in Sources */,
-				0370878E1B3899620080C080 /* Auto.swift in Sources */,
+				0370878E1B3899620080C080 /* Car.swift in Sources */,
 				03D48FAE1B3D021000A5E9D7 /* TablaAutosDelegate.swift in Sources */,
 				03CA4AC11B323897009BEA1B /* EjemploCoreData.xcdatamodeld in Sources */,
 			);
