@@ -12,7 +12,6 @@ import CoreData
 /// Clase Contacto para manejar las entidades de tipo Contacto de la base de datos.
 class Contacto: NSManagedObject {
 
-    // Los atributos del Contacto.
     @NSManaged var apellido: String
     @NSManaged var nombre: String
     @NSManaged var numero: String

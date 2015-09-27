@@ -12,7 +12,6 @@ import CoreData
 /// Clase Auto para manejar las entidades de tipo Auto de la base de datos.
 class Auto: NSManagedObject {
 
-    // Los atributos del Auto.
     @NSManaged var marca: String
     @NSManaged var modelo: String
     @NSManaged var ano: String
