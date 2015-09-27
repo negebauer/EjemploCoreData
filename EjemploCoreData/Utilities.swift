@@ -42,9 +42,8 @@ Cross Reference (see) enables you to point out related material to add backgroun
 /// - Precondition: a precondition
 /// - Remark: a remark
 /// - Requires: something required
-/// - See: related material
 /// - SeeAlso: more related material
-/// - Since: 27/09/2015
+/// - Since: 27-09-15
 /// - TODO: something to be donde
 /// - Version: 1.0
 /// - Warning: carefull!
