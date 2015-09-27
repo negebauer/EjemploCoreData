@@ -38,6 +38,7 @@ class Car: NSManagedObject {
     - Parameter model: The model of the `Car`.
     - Parameter year: The year the `Car` was made.
     - Parameter mileage: The amount of kilometers that the `Car` has travelled.
+    - Returns: `Car`
     
     - Author: Nicolás Gebauer.
     - Date: 22-06-15.
@@ -45,7 +46,8 @@ class Car: NSManagedObject {
     - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
     */
     class func new(moc: NSManagedObjectContext, manufacturer:String, model:String, year:String, mileage:Int) -> Car {
-        let newCar = NSEntityDescription.insertNewObjectForEntityForName("Car", inManagedObjectContext: moc) as! EjemploCoreData.Car
+        let newCar = NSEntityDescription.insertNewObjectForEntityForName("Car",
+            inManagedObjectContext: moc) as! EjemploCoreData.Car
         
         newCar.manufacturer = manufacturer
         newCar.model = model
@@ -62,7 +64,7 @@ class Car: NSManagedObject {
     - Copyright: © 2015 Nicolás Gebauer.
     - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
     */
-    func eliminarDueno() {
+    func deleteOwner() {
         owner = nil
     }
     
@@ -74,12 +76,13 @@ class Car: NSManagedObject {
     - Copyright: © 2015 Nicolás Gebauer.
     - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
     */
-    func asignarDueno(contact:Contact) {
+    func assignOwner(contact:Contact) {
         owner = contact
     }
     
     /** The licencePlate of the `Car` object being accesed.
     - Parameter newValue: The new `String` value of the licencePlate
+    - Returns: String
     
     - Author: Nicolás Gebauer.
     - Date: 22-06-15.
