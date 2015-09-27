@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-/** Class that represents a `Car` object that is saved in the database.
+/** Class that represents and manages `Car` object that is saved in the database.
 - Parameter manufacturer: The manufacterer of the `Car`.
 - Parameter model: The model of the `Car`.
 - Parameter year: The year the `Car` was made.
