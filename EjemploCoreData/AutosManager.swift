@@ -41,7 +41,7 @@ class AutosManager {
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         // Hacemos el fetch y manejamos los resultados, solo si el fetch funciona.
-        if let fetchResults = moc!.executeFetchRequest(fetchRequest, error: nil) as? [Auto] {
+        if let fetchResults = (try? moc!.executeFetchRequest(fetchRequest)) as? [Auto] {
             // Actualizamos la lista de autos, filtrando los autos que corresponden al dueno que tenemos abierto.
             autos = fetchResults.filter({c in return c.dueno == self.dueno})
         }
@@ -52,7 +52,7 @@ class AutosManager {
     /// Actualiza la lista de autos.
     func fetchAutosWithPredicates(marca:String, modelo:String, ano:String, km:String) {
         // Si filtraremos kilometraje, aqui obtenemos el Int a revisar.
-        let kmInt = km.toInt()
+        let kmInt = Int(km)
         
         // Creamos el array de predicados donde iremos agregando filtros de busqueda a medida que lo necesitemos.
         var predicatesArray = [NSPredicate]()
@@ -109,7 +109,7 @@ class AutosManager {
         fetchRequest.predicate = predicate
         
         // Hacemos el fetch y manejamos los resultados, solo si el fetch funciona.
-        if let fetchResults = moc!.executeFetchRequest(fetchRequest, error: nil) as? [Auto] {
+        if let fetchResults = (try? moc!.executeFetchRequest(fetchRequest)) as? [Auto] {
             // Actualizamos la lista de autos, filtrando los autos que corresponden al dueno que tenemos abierto.
             autos = fetchResults.filter({c in return c.dueno == self.dueno})
         }
@@ -118,7 +118,7 @@ class AutosManager {
     /// Creamos y agregamos un nuevo Auto a la base de datos.
     func agregarNuevoAuto(marca:String, modelo:String, ano:String, km:String) {
         // Revisamos si hay un kilometraje a fijar
-        let kmInt = km.toInt()
+        let kmInt = Int(km)
         
         if kmInt == nil {
             // Si no hay kilometraje, creamos un nuevo Auto con kilometraje 0.
@@ -157,12 +157,17 @@ class AutosManager {
     /// Graba los nuevos cambios en la base de datos.
     /// Si hay un problema imprime en consola el error que ocurrio.
     func saveDatabase() {
-        var error : NSError?
-        if(moc!.save(&error) ) {
-            if let err = error?.localizedDescription {
-                NSLog("Error grabando: ")
-                NSLog(error!.localizedDescription as String)
-            }
+        //let error : NSError?
+        do {
+            try moc!.save()
+        } catch {
+            
         }
+//        if(moc!.save() ) {
+//            if let err = error?.localizedDescription {
+//                NSLog("Error grabando: ")
+//                NSLog(error!.localizedDescription as String)
+//            }
+//        }
     }
 }

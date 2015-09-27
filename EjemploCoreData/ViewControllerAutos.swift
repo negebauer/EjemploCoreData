@@ -59,7 +59,7 @@ class ViewControllerAutos: UIViewController, UITextFieldDelegate  {
     @IBAction func AgregarNuevoAuto(sender: AnyObject) {
         // Verifica que no haya nada incorrecto escrito en el atributo kilometraje.
         // Termina la funcion y muestra si este es el caso.
-        if TextFieldKM.text != "" && TextFieldKM.text.toInt() == nil {
+        if TextFieldKM.text != "" && Int(TextFieldKM.text!) == nil {
             let alertController = UIAlertController(title: "Información incorrecta", message:"Escribe solo un numero en kilometraje, o déjalo vacio para que sea 0 automaticamente", preferredStyle: .Alert)
             alertController.addAction(UIAlertAction(title: "ok", style: .Default, handler: nil))
             self.presentViewController(alertController, animated: true, completion: nil)
@@ -67,7 +67,7 @@ class ViewControllerAutos: UIViewController, UITextFieldDelegate  {
         }
         
         // Llama al manager de autos para que agregue un nuevo auto con los atributos dados
-        managerAutos.agregarNuevoAuto(TextFieldMarca.text, modelo: TextFieldModelo.text, ano: TextFieldAno.text, km: TextFieldKM.text)
+        managerAutos.agregarNuevoAuto(TextFieldMarca.text!, modelo: TextFieldModelo.text!, ano: TextFieldAno.text!, km: TextFieldKM.text!)
         
         // Vuelve a cargar la lista de autos
         managerAutos.fetchAutos()
@@ -81,7 +81,7 @@ class ViewControllerAutos: UIViewController, UITextFieldDelegate  {
     @IBAction func FetchAutos(sender: AnyObject) {
         // Revisa si hay algun atributo que se tenga que usar para filtrar la busqueda.
         if (TextFieldMarca.text != "" || TextFieldModelo.text != "" || TextFieldAno.text != "" || TextFieldKM.text != "") {
-            managerAutos.fetchAutosWithPredicates(TextFieldMarca.text, modelo: TextFieldModelo.text, ano: TextFieldAno.text, km: TextFieldKM.text)
+            managerAutos.fetchAutosWithPredicates(TextFieldMarca.text!, modelo: TextFieldModelo.text!, ano: TextFieldAno.text!, km: TextFieldKM.text!)
         }
         // Busca todos los contactos.
         else {

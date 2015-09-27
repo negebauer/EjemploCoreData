@@ -23,6 +23,8 @@
 		03E8E81F1B37272900ACE454 /* CeldaContacto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E8E81E1B37272900ACE454 /* CeldaContacto.swift */; };
 		03E8E8211B37276C00ACE454 /* TablaContactosDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E8E8201B37276C00ACE454 /* TablaContactosDelegate.swift */; };
 		03E8E8291B37807600ACE454 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E8E8281B37807600ACE454 /* ContactManager.swift */; };
+		03F841931BB855470021DE4D /* Tutorial CoreData Swift.pages in Resources */ = {isa = PBXBuildFile; fileRef = 03F841921BB855470021DE4D /* Tutorial CoreData Swift.pages */; settings = {ASSET_TAGS = (); }; };
+		03F841951BB864180021DE4D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F841941BB864180021DE4D /* Utilities.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +49,7 @@
 		03CA4AC51B323897009BEA1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03CA4AC71B323897009BEA1B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		03CA4ACA1B323897009BEA1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		03CA4AD01B323897009BEA1B /* EjemploCoreDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EjemploCoreDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03CA4AD01B323897009BEA1B /* EjemploCoreData.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EjemploCoreData.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CA4AD51B323897009BEA1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03CA4AD61B323897009BEA1B /* EjemploCoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EjemploCoreDataTests.swift; sourceTree = "<group>"; };
 		03D48FAB1B3D019100A5E9D7 /* ViewControllerAutos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAutos.swift; sourceTree = "<group>"; };
@@ -57,6 +59,8 @@
 		03E8E81E1B37272900ACE454 /* CeldaContacto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeldaContacto.swift; sourceTree = "<group>"; };
 		03E8E8201B37276C00ACE454 /* TablaContactosDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablaContactosDelegate.swift; sourceTree = "<group>"; };
 		03E8E8281B37807600ACE454 /* ContactManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
+		03F841921BB855470021DE4D /* Tutorial CoreData Swift.pages */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "Tutorial CoreData Swift.pages"; sourceTree = "<group>"; };
+		03F841941BB864180021DE4D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				03CA4AB81B323897009BEA1B /* EjemploCoreData.app */,
-				03CA4AD01B323897009BEA1B /* EjemploCoreDataTests.xctest */,
+				03CA4AD01B323897009BEA1B /* EjemploCoreData.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +116,7 @@
 				03CA4AC91B323897009BEA1B /* LaunchScreen.xib */,
 				0370878F1B389B1C0080C080 /* Contacto.swift */,
 				0370878D1B3899620080C080 /* Auto.swift */,
+				03F841941BB864180021DE4D /* Utilities.swift */,
 				03CA4ABF1B323897009BEA1B /* EjemploCoreData.xcdatamodeld */,
 				03CA4ABB1B323897009BEA1B /* Supporting Files */,
 			);
@@ -121,6 +126,7 @@
 		03CA4ABB1B323897009BEA1B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03F841921BB855470021DE4D /* Tutorial CoreData Swift.pages */,
 				03CA4ABC1B323897009BEA1B /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -178,7 +184,7 @@
 			);
 			name = EjemploCoreDataTests;
 			productName = EjemploCoreDataTests;
-			productReference = 03CA4AD01B323897009BEA1B /* EjemploCoreDataTests.xctest */;
+			productReference = 03CA4AD01B323897009BEA1B /* EjemploCoreData.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -187,7 +193,9 @@
 		03CA4AB01B323897009BEA1B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Nicolás Gebauer";
 				TargetAttributes = {
 					03CA4AB71B323897009BEA1B = {
@@ -226,6 +234,7 @@
 				03CA4AC61B323897009BEA1B /* Main.storyboard in Resources */,
 				03CA4ACB1B323897009BEA1B /* LaunchScreen.xib in Resources */,
 				03CA4AC81B323897009BEA1B /* Images.xcassets in Resources */,
+				03F841931BB855470021DE4D /* Tutorial CoreData Swift.pages in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +256,7 @@
 				03E8E8291B37807600ACE454 /* ContactManager.swift in Sources */,
 				03CA4AC31B323897009BEA1B /* ViewController.swift in Sources */,
 				03CA4ABE1B323897009BEA1B /* AppDelegate.swift in Sources */,
+				03F841951BB864180021DE4D /* Utilities.swift in Sources */,
 				03D48FAC1B3D019100A5E9D7 /* ViewControllerAutos.swift in Sources */,
 				03E8E8211B37276C00ACE454 /* TablaContactosDelegate.swift in Sources */,
 				03D48FB01B3D022800A5E9D7 /* CeldaAuto.swift in Sources */,
@@ -317,6 +327,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -383,7 +394,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EjemploCoreData/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nicogeb.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = EjemploCoreData;
 			};
 			name = Debug;
 		};
@@ -393,7 +405,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EjemploCoreData/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nicogeb.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = EjemploCoreData;
 			};
 			name = Release;
 		};
@@ -411,7 +424,8 @@
 				);
 				INFOPLIST_FILE = EjemploCoreDataTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nicogeb.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = EjemploCoreData;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EjemploCoreData.app/EjemploCoreData";
 			};
 			name = Debug;
@@ -426,7 +440,8 @@
 				);
 				INFOPLIST_FILE = EjemploCoreDataTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nicogeb.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = EjemploCoreData;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EjemploCoreData.app/EjemploCoreData";
 			};
 			name = Release;

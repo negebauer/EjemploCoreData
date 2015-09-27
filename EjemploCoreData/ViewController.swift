@@ -48,7 +48,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /// Agrega un nuevo contacto a la base de datos con los atributos estipulados en los TextFields.
     @IBAction func AgregarNuevoContacto(sender: AnyObject) {
         // Llama al manager de contactos para que agregue un nuevo contacto con los atributos dados.
-        managerContactos.agregarNuevoContacto(TextFieldNombre.text, apellido: TextFieldApellido.text, numero: TextFieldNumero.text)
+        managerContactos.agregarNuevoContacto(TextFieldNombre.text!, apellido: TextFieldApellido.text!, numero: TextFieldNumero.text!)
         
         // Vuelve a cargar la lista de contactos.
         managerContactos.fetchContacts()
@@ -62,7 +62,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func FetchContactos(sender: AnyObject) {
         // Revisa si hay algun atributo que se tenga que usar para filtrar la busqueda.
         if (TextFieldNombre.text != "" || TextFieldApellido.text != "" || TextFieldNumero.text != "") {
-            managerContactos.fetchContactsWithPredicates(TextFieldNombre.text, apellido: TextFieldApellido.text, numero: TextFieldNumero.text)
+            managerContactos.fetchContactsWithPredicates(TextFieldNombre.text!, apellido: TextFieldApellido.text!, numero: TextFieldNumero.text!)
         }
         // Busca todos los contactos.
         else {

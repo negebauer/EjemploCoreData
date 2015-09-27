@@ -38,7 +38,7 @@ class ContactManager {
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         // Hacemos el fetch y manejamos los resultados, solo si el fetch funciona.
-        if let fetchResults = moc!.executeFetchRequest(fetchRequest, error: nil) as? [Contacto] {
+        if let fetchResults = (try? moc!.executeFetchRequest(fetchRequest)) as? [Contacto] {
             // Actualizamos la lista de contactos
             contactos = fetchResults
         }
@@ -94,7 +94,7 @@ class ContactManager {
         fetchRequest.predicate = predicate
         
         // Hacemos el fetch y manejamos los resultados, solo si el fetch funciona.
-        if let fetchResults = moc!.executeFetchRequest(fetchRequest, error: nil) as? [Contacto] {
+        if let fetchResults = (try? moc!.executeFetchRequest(fetchRequest)) as? [Contacto] {
             // Actualizamos la lista de contactos
             contactos = fetchResults
         }
@@ -103,7 +103,7 @@ class ContactManager {
     /// Creamos y agregamos un nuevo Contacto a la base de datos.
     func agregarNuevoContacto(nombre:String, apellido:String, numero:String) {
         // Creamos el nuevo contacto
-        let contacto = Contacto.new(moc!, _nombre: nombre, _apellido: apellido, _numero: numero)
+        _ = Contacto.new(moc!, _nombre: nombre, _apellido: apellido, _numero: numero)
         
         // Guardamos los cambios en nuestra base de datos
         saveDatabase()
@@ -124,12 +124,17 @@ class ContactManager {
     /// Graba los nuevos cambios en la base de datos.
     /// Si hay un problema imprime en consola el error que ocurrio.
     func saveDatabase() {
-        var error : NSError?
-        if(moc!.save(&error) ) {
-            if let err = error?.localizedDescription {
-                NSLog("Error grabando: ")
-                NSLog(error!.localizedDescription as String)
-            }
+        //let error : NSError?
+        do {
+            try moc!.save()
+        } catch {
+            
         }
+//        if(moc!.save() ) {
+//            if let err = error?.localizedDescription {
+//                NSLog("Error grabando: ")
+//                NSLog(error!.localizedDescription as String)
+//            }
+//        }
     }
 }
