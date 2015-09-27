@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="d5d-mm-jvZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="d5d-mm-jvZ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mqo-yr-hA1">
-                                <rect key="frame" x="24" y="72" width="552" height="30"/>
+                                <rect key="frame" x="28" y="72" width="544" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="s1l-8j-uwe"/>
                                 </constraints>
@@ -31,12 +32,12 @@
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Numero" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jNa-Xe-OpJ">
-                                <rect key="frame" x="24" y="148" width="552" height="30"/>
+                                <rect key="frame" x="28" y="148" width="544" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tf-za-9wA">
-                                <rect key="frame" x="24" y="186" width="552" height="30"/>
+                                <rect key="frame" x="28" y="186" width="544" height="30"/>
                                 <state key="normal" title="Agregar contacto">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -45,23 +46,24 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1yy-Bo-bEo">
-                                <rect key="frame" x="24" y="262" width="552" height="330"/>
+                                <rect key="frame" x="28" y="262" width="544" height="330"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IDCeldaContacto" rowHeight="50" id="fRU-Ba-bCj" customClass="CeldaContacto" customModule="EjemploCoreData" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IDCeldaContacto" rowHeight="50" id="fRU-Ba-bCj" customClass="ContactCell" customModule="EjemploCoreData" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="22" width="544" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fRU-Ba-bCj" id="77E-eH-gbK">
+                                            <rect key="frame" x="0.0" y="0.0" width="544" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nicolas Eduardo Gebauer Martinez" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDv-GM-JE1">
-                                                    <rect key="frame" x="8" y="14.5" width="268" height="20.5"/>
+                                                    <rect key="frame" x="8" y="14" width="266.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+56962448489" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyV-kd-LAp">
-                                                    <rect key="frame" x="429" y="14.5" width="115" height="20.5"/>
+                                                    <rect key="frame" x="411" y="14" width="125" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -75,19 +77,19 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="LabelNombre" destination="fDv-GM-JE1" id="uaB-gX-9bX"/>
-                                            <outlet property="LabelNumero" destination="WyV-kd-LAp" id="HA7-AL-OSJ"/>
+                                            <outlet property="LabelName" destination="fDv-GM-JE1" id="4sE-TD-EzE"/>
+                                            <outlet property="LabelNumber" destination="WyV-kd-LAp" id="kWy-vj-Fzy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ex9-0L-Iyc">
-                                <rect key="frame" x="24" y="110" width="552" height="30"/>
+                                <rect key="frame" x="28" y="110" width="544" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hm-8S-0jX">
-                                <rect key="frame" x="24" y="224" width="552" height="30"/>
+                                <rect key="frame" x="28" y="224" width="544" height="30"/>
                                 <state key="normal" title="Fetch contactos">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -151,7 +153,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Marca" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbb-6T-q0D">
-                                <rect key="frame" x="24" y="72" width="552" height="30"/>
+                                <rect key="frame" x="28" y="72" width="544" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="POc-ew-aoW"/>
                                 </constraints>
@@ -164,12 +166,12 @@
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Año" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ogJ-xe-Htm">
-                                <rect key="frame" x="24" y="148" width="276" height="30"/>
+                                <rect key="frame" x="28" y="148" width="272" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSP-IW-w4r">
-                                <rect key="frame" x="24" y="186" width="552" height="30"/>
+                                <rect key="frame" x="28" y="186" width="544" height="30"/>
                                 <state key="normal" title="Agregar auto">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -178,7 +180,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj1-gY-YjS">
-                                <rect key="frame" x="24" y="224" width="552" height="30"/>
+                                <rect key="frame" x="28" y="224" width="544" height="30"/>
                                 <state key="normal" title="Fetch autos">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -187,23 +189,24 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ADz-PZ-rgD">
-                                <rect key="frame" x="24" y="290.5" width="552" height="301.5"/>
+                                <rect key="frame" x="28" y="290.5" width="544" height="301.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IDCeldaAuto" rowHeight="50" id="alp-T4-ajM" customClass="CeldaAuto" customModule="EjemploCoreData" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IDCeldaAuto" rowHeight="50" id="alp-T4-ajM" customClass="CarCell" customModule="EjemploCoreData" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="22" width="544" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="alp-T4-ajM" id="OyD-kK-9FS">
+                                            <rect key="frame" x="0.0" y="0.0" width="544" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chevrolet SAIL II 2014" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiP-TC-e7j">
-                                                    <rect key="frame" x="8" y="14" width="171" height="20.5"/>
+                                                    <rect key="frame" x="8" y="14" width="169" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 km" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8n-xy-HrR">
-                                                    <rect key="frame" x="487" y="14" width="57" height="20.5"/>
+                                                    <rect key="frame" x="480" y="14" width="56" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -217,25 +220,25 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="LabelKM" destination="y8n-xy-HrR" id="qt0-NK-Xdp"/>
-                                            <outlet property="LabelNombre" destination="FiP-TC-e7j" id="XD8-X7-CkZ"/>
+                                            <outlet property="LabelMileage" destination="y8n-xy-HrR" id="wVD-UL-WdU"/>
+                                            <outlet property="LabelName" destination="FiP-TC-e7j" id="ID5-4d-RO7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Modelo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lhm-Us-JHv">
-                                <rect key="frame" x="24" y="110" width="552" height="30"/>
+                                <rect key="frame" x="28" y="110" width="544" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autos de Nicolas Eduardo Gebauer Martinez" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOc-Ev-z5E">
-                                <rect key="frame" x="24" y="262" width="552" height="20.5"/>
+                                <rect key="frame" x="28" y="262" width="544" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kilometraje" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44V-oM-nGi">
-                                <rect key="frame" x="308" y="148" width="268" height="30"/>
+                                <rect key="frame" x="308" y="148" width="264" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                             </textField>
