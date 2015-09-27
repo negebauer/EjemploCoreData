@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D130a" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Auto" representedClassName="EjemploCoreData.Auto" syncable="YES">
-        <attribute name="ano" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="kilometraje" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="marca" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="modelo" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="patente" optional="YES" attributeType="String" syncable="YES"/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
+    <entity name="Car" representedClassName="EjemploCoreData.Car" syncable="YES">
+        <attribute name="licencePlate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="manufacturer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mileage" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="dueno" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contacto" inverseName="autos" inverseEntity="Contacto" syncable="YES"/>
     </entity>
     <entity name="Contacto" representedClassName="EjemploCoreData.Contacto" syncable="YES">
         <attribute name="apellido" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numero" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="autos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Auto" inverseName="dueno" inverseEntity="Auto" syncable="YES"/>
+        <relationship name="autos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Car" inverseName="dueno" inverseEntity="Car" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Auto" positionX="-36" positionY="36" width="128" height="135"/>
+        <element name="Car" positionX="-36" positionY="36" width="128" height="135"/>
         <element name="Contacto" positionX="-36" positionY="9" width="128" height="105"/>
     </elements>
 </model>
