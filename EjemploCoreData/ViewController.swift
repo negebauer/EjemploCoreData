@@ -9,90 +9,128 @@
 import UIKit
 import CoreData
 
-/// Vista de la lista de Contactos junto con los TextFields que le corresponden.
-class ViewController: UIViewController, UITextFieldDelegate {
-    var managerContactos = ContactManager()
-    var delegateTablaContactos : TablaContactosDelegate!
-    
-    @IBOutlet weak var TablaContactos: UITableView!
+/** View that handles the display of the contacts, the creation of new contacs,
+and the possibility to perfom a `Contact` search giving specific parameters to look for.
 
-    @IBOutlet weak var TextFieldNombre: UITextField!
-    @IBOutlet weak var TextFieldApellido: UITextField!
-    @IBOutlet weak var TextFieldNumero: UITextField!
+- Author: Nicolás Gebauer.
+- Date: 17-06-15.
+- Copyright: © 2015 Nicolás Gebauer.
+- SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
+*/
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    /// The `Contact` manager.
+    var contactsManager = ContactManager()
+    
+    /// The delegate that handles the contacts table.
+    var contactsTableDelegate : ContactsTableDelegate!
+    
+    @IBOutlet weak var ContactsTable: UITableView!
+
+    @IBOutlet weak var TextFieldFirstName: UITextField!
+    @IBOutlet weak var TextFieldSurname: UITextField!
+    @IBOutlet weak var TextFieldNumber: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        delegateTablaContactos = TablaContactosDelegate()
-        delegateTablaContactos.referenciaAlViewController = self
-        delegateTablaContactos.contactManager = managerContactos
-        delegateTablaContactos.referenciaALaTablaContactos = TablaContactos
+        contactsTableDelegate = ContactsTableDelegate()
+        contactsTableDelegate.refViewController = self
+        contactsTableDelegate.refContactManager = contactsManager
+        contactsTableDelegate.refContactsTable = ContactsTable
         
-        TablaContactos.delegate = delegateTablaContactos
-        TablaContactos.dataSource = delegateTablaContactos
+        ContactsTable.delegate = contactsTableDelegate
+        ContactsTable.dataSource = contactsTableDelegate
         
-        TextFieldApellido.delegate = self
-        TextFieldNombre.delegate = self
-        TextFieldNumero.delegate = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-    /// Agrega un nuevo contacto a la base de datos con los atributos estipulados en los TextFields.
-    @IBAction func AgregarNuevoContacto(sender: AnyObject) {
-        managerContactos.agregarNuevoContacto(TextFieldNombre.text!, apellido: TextFieldApellido.text!, numero: TextFieldNumero.text!)
-        
-        managerContactos.fetchContacts()
-        
-        TablaContactos.reloadData()
-        borrarTextFields()
+        TextFieldFirstName.delegate = self
+        TextFieldSurname.delegate = self
+        TextFieldNumber.delegate = self
     }
     
-    /// Hace un fetch de todos los contactos. Filtra este busqueda si hay atributos en algun TextField.
-    @IBAction func FetchContactos(sender: AnyObject) {
-        if (TextFieldNombre.text != "" || TextFieldApellido.text != "" || TextFieldNumero.text != "") {
-            managerContactos.fetchContactsWithPredicates(TextFieldNombre.text!, apellido: TextFieldApellido.text!, numero: TextFieldNumero.text!)
+    // MARK: - User actions
+
+    /** Adds a new `Contact` to the database using the information of the text fields.
+    
+    - Author: Nicolás Gebauer.
+    - Date: 17-06-15.
+    - Copyright: © 2015 Nicolás Gebauer.
+    - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
+    */
+    @IBAction func addNewContact(sender: AnyObject) {
+        contactsManager.addNewContact(TextFieldFirstName.text!, surname: TextFieldSurname.text!, number: TextFieldNumber.text!)
+        
+        contactsManager.fetchContacts()
+        
+        ContactsTable.reloadData()
+        deleteTextFields()
+    }
+    
+    /** Does a fetch for a specified `Contact` if any text field `text` isn't empty.
+    Perfoms a complete `Contact` fetch if there is no text field with any info.
+    
+    - Author: Nicolás Gebauer.
+    - Date: 17-06-15.
+    - Copyright: © 2015 Nicolás Gebauer.
+    - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
+    */
+    @IBAction func fetchContacts(sender: AnyObject) {
+        if (TextFieldFirstName.text != "" ||
+            TextFieldSurname.text != "" ||
+            TextFieldNumber.text != "") {
+                contactsManager.fetchContactsWithPredicates(
+                    TextFieldFirstName.text!,
+                    surname: TextFieldSurname.text!,
+                    number: TextFieldNumber.text!)
         } else {
-            managerContactos.fetchContacts()
+            contactsManager.fetchContacts()
         }
-        borrarTextFields()
+        deleteTextFields()
         
-        TablaContactos.reloadData()
+        ContactsTable.reloadData()
     }
     
-    /// Borra los TextField para que el usuario no tenga que hacerlo.
-    func borrarTextFields() {
-        TextFieldNombre.text = ""
-        TextFieldApellido.text = ""
-        TextFieldNumero.text = ""
+    // MARK: - Internal actions
+    
+    /** Deletes the content (`text`) of all the text fields in this view.
+    
+    - Author: Nicolás Gebauer.
+    - Date: 17-06-15.
+    - Copyright: © 2015 Nicolás Gebauer.
+    - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
+    */
+    func deleteTextFields() {
+        TextFieldFirstName.text = ""
+        TextFieldSurname.text = ""
+        TextFieldNumber.text = ""
     }
     
-    /// Define que hacer cuando se apreta Enter en un TextField. Esto para que el cambio de un TextField al siguiente sea automatico. Si es el ultimo TextField cierra el teclado.
+    /** Defines what happens when the key `Return` is pressed.
+    Controls the flow trough text fields.
+    
+    - Author: Nicolás Gebauer.
+    - Date: 17-06-15.
+    - Copyright: © 2015 Nicolás Gebauer.
+    - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
+    */
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField == TextFieldNumero {
+        if textField == TextFieldNumber {
             textField.resignFirstResponder()
-        }
-        else if textField == TextFieldNombre {
+        } else if textField == TextFieldFirstName {
             textField.resignFirstResponder()
-            TextFieldApellido.select(self)
-        }
-        else if textField == TextFieldApellido {
+            TextFieldSurname.select(self)
+        } else if textField == TextFieldSurname {
             textField.resignFirstResponder()
-            TextFieldNumero.select(self)
+            TextFieldNumber.select(self)
         }
         return true
     }
     
-    /// Prepara el segue a una nueva vista. Permite personalizarla antes de cargarla.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == nil {
             return
-        }
-        if segue.identifier == "IDMostrarAutosContacto" {
-            let vistaAutos = segue.destinationViewController as! ViewControllerAutos
-            vistaAutos.dueno = delegateTablaContactos.contactoAMostrarAutos
+        } else if segue.identifier == "IDShowContactCars" {
+            let carView = segue.destinationViewController as! CarViewController
+            carView.owner = contactsTableDelegate.contactToShowCars
         }
     }
 }

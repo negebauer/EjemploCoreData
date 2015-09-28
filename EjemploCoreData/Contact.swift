@@ -1,5 +1,5 @@
 //
-//  Contacto.swift
+//  Contact.swift
 //  EjemploCoreData
 //
 //  Created by Nicolás Gebauer on 22-06-15.
@@ -20,12 +20,15 @@ class Contact: NSManagedObject {
 
     /// The first name of the `Contact`.
     @NSManaged var firstName: String
+    
     /// The surname of the `Contact`.
     @NSManaged var surname: String
+    
     /// The phone number of the `Contact`.
     @NSManaged var number: String
+    
     /// The cars that the `Contact` owns.
-    @NSManaged var cars: NSSet
+    @NSManaged var cars: NSSet?
 
     /** Creates a new `Contact` in the database and returns it.
     - Parameter firstName: The first name of the `Contact`.

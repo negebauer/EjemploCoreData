@@ -10,80 +10,129 @@ import Foundation
 import CoreData
 import UIKit
 
-/// El manager de Contactos.
-/// Se encarga de todo lo relacionado con el manejo de los objetos Contacto con respecto a la base de datos.
+/** The `Contact` manager.
+Handles everything related to managing the contacts of the database.
+
+- Author: Nicolás Gebauer.
+- Date: 21-06-15.
+- Copyright: © 2015 Nicolás Gebauer.
+- SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
+*/
 class ContactManager {
     
+    /// The managed object context of the database.
     let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    var contactos = [Contacto]()
+    /// An array containing all contacts.
+    var contacts = [Contact]()
     
     init() {
         fetchContacts()
     }
     
-    /// Hace un fetch de todos los Contactos en la base de datos.
-    /// Los ordena en orden alfabético con respecto al nombre.
-    /// Actualiza la lista de contactos.
+    /** Makes a fetch of all the cars, sorts them alphabetically acording to the `firstName`.
+    Then updates `contacts` with all of them.
+    
+    - Author: Nicolás Gebauer.
+    - Date: 21-06-15.
+    - Copyright: © 2015 Nicolás Gebauer.
+    - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
+    */
     func fetchContacts() {
-        let sortDescriptor = NSSortDescriptor(key: "nombre", ascending: true)
-        let fetchRequest = NSFetchRequest(entityName: "Contacto")
+        let sortDescriptor = NSSortDescriptor(key: "firstName", ascending: true)
+        let fetchRequest = NSFetchRequest(entityName: "Contact")
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        if let fetchResults = (try? moc!.executeFetchRequest(fetchRequest)) as? [Contacto] {
-            contactos = fetchResults
+        if let fetchResults = (try? moc!.executeFetchRequest(fetchRequest)) as? [Contact] {
+            contacts = fetchResults
         }
     }
     
     /// Hace un fetch de todos los Contactos en la base de datos que cumplan con contener los strings estipulados en los atributos nombre, apellido y numero, si es que son distintos de "".
     /// Los ordena en orden alfabético con respecto al nombre.
     /// Actualiza la lista de contactos.
-    func fetchContactsWithPredicates(nombre:String, apellido:String, numero:String) {
+    
+    /** Makes a fetch of all the contacts that comply with the given paramaters, sorts them alphabetically acording to the `firstName`.
+    Then updates `contacts` with all of them.
+    - Parameter firstName: The first name of the `Contact`.
+    - Parameter surname: The surname of the `Contact`.
+    - Parameter number: The phone number of the `Contact`.
+    
+    - Author: Nicolás Gebauer.
+    - Date: 21-06-15.
+    - Copyright: © 2015 Nicolás Gebauer.
+    - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
+    */
+    func fetchContactsWithPredicates(firstName:String, surname:String, number:String) {
         var predicatesArray = [NSPredicate]()
         
-        if nombre != "" {
-            let predicateNombre = NSPredicate(format: "nombre CONTAINS %@", nombre)
-            predicatesArray.append(predicateNombre)
+        if firstName != "" {
+            let predicateFirstName = NSPredicate(format: "firstName CONTAINS %@", firstName)
+            predicatesArray.append(predicateFirstName)
         }
         
-        if apellido != "" {
-            let predicateApellido = NSPredicate(format: "apellido CONTAINS %@", apellido)
-            predicatesArray.append(predicateApellido)
+        if surname != "" {
+            let predicateSurname = NSPredicate(format: "surname CONTAINS %@", surname)
+            predicatesArray.append(predicateSurname)
         }
         
-        if numero != "" {
-            let predicateNumero = NSPredicate(format: "numero CONTAINS %@", numero)
-            predicatesArray.append(predicateNumero)
+        if number != "" {
+            let predicateNumber = NSPredicate(format: "number CONTAINS %@", number)
+            predicatesArray.append(predicateNumber)
         }
         
         let predicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: predicatesArray)
-        let sortDescriptor = NSSortDescriptor(key: "nombre", ascending: true)
-        let fetchRequest = NSFetchRequest(entityName: "Contacto")
+        let sortDescriptor = NSSortDescriptor(key: "firstName", ascending: true)
+        let fetchRequest = NSFetchRequest(entityName: "Contact")
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchRequest.predicate = predicate
         
-        if let fetchResults = (try? moc!.executeFetchRequest(fetchRequest)) as? [Contacto] {
-            contactos = fetchResults
+        if let fetchResults = (try? moc!.executeFetchRequest(fetchRequest)) as? [Contact] {
+            contacts = fetchResults
         }
     }
     
-    /// Creamos y agregamos un nuevo Contacto a la base de datos.
-    func agregarNuevoContacto(nombre:String, apellido:String, numero:String) {
-        _ = Contacto.new(moc!, _nombre: nombre, _apellido: apellido, _numero: numero)
+    /** Creates a new `Contact` and saves it in the database.
+    - Parameter firstName: The first name of the `Contact`.
+    - Parameter surname: The surname of the `Contact`.
+    - Parameter number: The phone number of the `Contact`.
+    
+    - Author: Nicolás Gebauer.
+    - Date: 21-06-15.
+    - Copyright: © 2015 Nicolás Gebauer.
+    - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
+    */
+    func addNewContact(firstName: String, surname: String, number: String) {
+        _ = Contact.new(moc!, firstName: firstName, surname: surname, number: number)
         
         saveDatabase()
     }
     
     /// Borra un contacto de la base de datos en funcion de su index en la lista de contactos
-    func borrarContacto(index:Int) {
-        if index < contactos.count {
-            moc?.deleteObject(contactos[index])
+    
+    /** Deletes a `Contact` from the database using an `index`.
+    Doesn't do anything if the `index` is bigger than the array.
+    - Parameter index: The index of the `Contact` to be deleted in the array `contacts`.
+    
+    - Author: Nicolás Gebauer.
+    - Date: 21-06-15.
+    - Copyright: © 2015 Nicolás Gebauer.
+    - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
+    */
+    func deleteContact(index:Int) {
+        if index < contacts.count {
+            moc?.deleteObject(contacts[index])
         }
         
         saveDatabase()
     }
     
-    /// Graba los nuevos cambios en la base de datos.
-    /// Si hay un problema imprime en consola el error que ocurrio.
+    /** Saves changes in the database.
+    
+    - Author: Nicolás Gebauer.
+    - Date: 21-06-15.
+    - Copyright: © 2015 Nicolás Gebauer.
+    - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
+    */
     func saveDatabase() {
         do {
             try moc!.save()

@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mqo-yr-hA1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mqo-yr-hA1">
                                 <rect key="frame" x="28" y="72" width="544" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="s1l-8j-uwe"/>
@@ -31,7 +31,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Numero" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jNa-Xe-OpJ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jNa-Xe-OpJ">
                                 <rect key="frame" x="28" y="148" width="544" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
@@ -42,14 +42,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="AgregarNuevoContacto:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jsy-KX-NwM"/>
+                                    <action selector="addNewContact:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="t5O-S3-298"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1yy-Bo-bEo">
                                 <rect key="frame" x="28" y="262" width="544" height="330"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IDCeldaContacto" rowHeight="50" id="fRU-Ba-bCj" customClass="ContactCell" customModule="EjemploCoreData" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IDContactCell" rowHeight="50" id="fRU-Ba-bCj" customClass="ContactCell" customModule="EjemploCoreData" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="544" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fRU-Ba-bCj" id="77E-eH-gbK">
@@ -83,7 +83,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ex9-0L-Iyc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ex9-0L-Iyc">
                                 <rect key="frame" x="28" y="110" width="544" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
@@ -94,7 +94,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="FetchContactos:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZZN-eJ-a8X"/>
+                                    <action selector="fetchContacts:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rgn-bq-lfg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -129,21 +129,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="weM-Ip-Kyc"/>
                     <connections>
-                        <outlet property="TablaContactos" destination="1yy-Bo-bEo" id="cAT-Nd-Osc"/>
-                        <outlet property="TextFieldApellido" destination="ex9-0L-Iyc" id="WB9-s7-zPw"/>
-                        <outlet property="TextFieldNombre" destination="Mqo-yr-hA1" id="h7R-5E-iPj"/>
-                        <outlet property="TextFieldNumero" destination="jNa-Xe-OpJ" id="7Qu-fz-HcC"/>
-                        <segue destination="jFZ-jL-SyZ" kind="show" identifier="IDMostrarAutosContacto" id="dRj-nw-HQY"/>
+                        <outlet property="ContactsTable" destination="1yy-Bo-bEo" id="0nn-qh-MYT"/>
+                        <outlet property="TextFieldFirstName" destination="Mqo-yr-hA1" id="ks3-XT-jqO"/>
+                        <outlet property="TextFieldNumber" destination="jNa-Xe-OpJ" id="vQr-OK-YnO"/>
+                        <outlet property="TextFieldSurname" destination="ex9-0L-Iyc" id="l66-NS-6HR"/>
+                        <segue destination="jFZ-jL-SyZ" kind="show" identifier="IDShowContactCars" id="dRj-nw-HQY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2169" y="361"/>
         </scene>
-        <!--View Controller Autos-->
+        <!--Car View Controller-->
         <scene sceneID="qRI-Rr-Lkb">
             <objects>
-                <viewController id="jFZ-jL-SyZ" customClass="ViewControllerAutos" customModule="EjemploCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jFZ-jL-SyZ" customClass="CarViewController" customModule="EjemploCoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i8h-cr-WOn"/>
                         <viewControllerLayoutGuide type="bottom" id="Zfd-mn-jQx"/>
@@ -152,7 +152,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Marca" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbb-6T-q0D">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Manufacturer" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbb-6T-q0D">
                                 <rect key="frame" x="28" y="72" width="544" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="POc-ew-aoW"/>
@@ -165,7 +165,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Año" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ogJ-xe-Htm">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ogJ-xe-Htm">
                                 <rect key="frame" x="28" y="148" width="272" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
@@ -176,7 +176,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="AgregarNuevoAuto:" destination="jFZ-jL-SyZ" eventType="touchUpInside" id="CVO-mR-ngz"/>
+                                    <action selector="addNewCar:" destination="jFZ-jL-SyZ" eventType="touchUpInside" id="bIR-Bi-vNV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj1-gY-YjS">
@@ -185,14 +185,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="FetchAutos:" destination="jFZ-jL-SyZ" eventType="touchUpInside" id="2kG-kf-Nwv"/>
+                                    <action selector="fetchCars:" destination="jFZ-jL-SyZ" eventType="touchUpInside" id="lBT-yV-bbf"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ADz-PZ-rgD">
                                 <rect key="frame" x="28" y="290.5" width="544" height="301.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IDCeldaAuto" rowHeight="50" id="alp-T4-ajM" customClass="CarCell" customModule="EjemploCoreData" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IDCarCell" rowHeight="50" id="alp-T4-ajM" customClass="CarCell" customModule="EjemploCoreData" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="544" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="alp-T4-ajM" id="OyD-kK-9FS">
@@ -226,18 +226,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Modelo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lhm-Us-JHv">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lhm-Us-JHv">
                                 <rect key="frame" x="28" y="110" width="544" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autos de Nicolas Eduardo Gebauer Martinez" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOc-Ev-z5E">
-                                <rect key="frame" x="28" y="262" width="544" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cars of Nicolas Eduardo Gebauer Martinez" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOc-Ev-z5E">
+                                <rect key="frame" x="28" y="262" width="544" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kilometraje" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44V-oM-nGi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mileage (km)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44V-oM-nGi">
                                 <rect key="frame" x="308" y="148" width="264" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
@@ -289,12 +289,12 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="LabelNombreDueno" destination="JOc-Ev-z5E" id="8LR-2L-gYo"/>
-                        <outlet property="TablaAutos" destination="ADz-PZ-rgD" id="vEA-IT-InK"/>
-                        <outlet property="TextFieldAno" destination="ogJ-xe-Htm" id="xZU-Uv-yim"/>
-                        <outlet property="TextFieldKM" destination="44V-oM-nGi" id="Lq3-4c-TID"/>
-                        <outlet property="TextFieldMarca" destination="jbb-6T-q0D" id="6Ub-EA-7VU"/>
-                        <outlet property="TextFieldModelo" destination="Lhm-Us-JHv" id="Ete-mK-nZf"/>
+                        <outlet property="CarsTable" destination="ADz-PZ-rgD" id="8Jr-MW-cBn"/>
+                        <outlet property="LabelOwnerName" destination="JOc-Ev-z5E" id="C2m-Ex-w97"/>
+                        <outlet property="TextFieldManufacturer" destination="jbb-6T-q0D" id="WTE-OL-3Ac"/>
+                        <outlet property="TextFieldMileage" destination="44V-oM-nGi" id="FcO-ma-9fT"/>
+                        <outlet property="TextFieldModel" destination="Lhm-Us-JHv" id="a0Q-0d-SKw"/>
+                        <outlet property="TextFieldYear" destination="ogJ-xe-Htm" id="BAt-wC-6LD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rt-rd-e5w" sceneMemberID="firstResponder"/>

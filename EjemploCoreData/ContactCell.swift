@@ -1,5 +1,5 @@
 //
-//  CeldaContacto.swift
+//  ContactCell.swift
 //  EjemploCoreData
 //
 //  Created by Nicolás Gebauer on 21-06-15.

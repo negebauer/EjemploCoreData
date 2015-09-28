@@ -1,5 +1,5 @@
 //
-//  Auto.swift
+//  Car.swift
 //  EjemploCoreData
 //
 //  Created by Nicolás Gebauer on 22-06-15.
@@ -20,14 +20,19 @@ class Car: NSManagedObject {
 
     /// The manufacturer of the `Car`.
     @NSManaged var manufacturer: String
+    
     /// The model of the `Car`.
     @NSManaged var model: String
+    
     /// The year the `Car` was made.
     @NSManaged var year: String
+    
     /// The amount of kilometers that the `Car` has travelled.
     @NSManaged var mileage: NSNumber
+    
     /// The `Contact` owner of the `Car.
     @NSManaged var owner: Contact?
+    
     /// The licence plate of the `Car`.
     @NSManaged var licencePlateString: String
 
