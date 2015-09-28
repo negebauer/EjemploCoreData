@@ -128,7 +128,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == nil {
             return
-        } else if segue.identifier == "IDShowContactCars" {
+        } else if segue.identifier == IDShowContactCars {
             let carView = segue.destinationViewController as! CarViewController
             carView.owner = contactsTableDelegate.contactToShowCars
         }

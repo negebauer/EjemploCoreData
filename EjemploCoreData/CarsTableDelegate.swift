@@ -45,7 +45,7 @@ class CarsTableDelegate: NSObject, UITableViewDelegate, UITableViewDataSource {
     - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
     */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let carCell = tableView.dequeueReusableCellWithIdentifier("IDCarCell") as! CarCell
+        let carCell = tableView.dequeueReusableCellWithIdentifier(IDCarCell) as! CarCell
         
         let car = refCarManager.cars[indexPath.row]
         carCell.LabelName.text = "\(car.manufacturer) \(car.model) \(car.year)"

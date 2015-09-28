@@ -25,6 +25,7 @@
 		03E8E8291B37807600ACE454 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E8E8281B37807600ACE454 /* ContactManager.swift */; };
 		03F841931BB855470021DE4D /* Tutorial CoreData Swift.pages in Resources */ = {isa = PBXBuildFile; fileRef = 03F841921BB855470021DE4D /* Tutorial CoreData Swift.pages */; settings = {ASSET_TAGS = (); }; };
 		03F841951BB864180021DE4D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F841941BB864180021DE4D /* Utilities.swift */; settings = {ASSET_TAGS = (); }; };
+		03F841971BB8FF380021DE4D /* IDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F841961BB8FF380021DE4D /* IDs.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		03E8E8281B37807600ACE454 /* ContactManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 		03F841921BB855470021DE4D /* Tutorial CoreData Swift.pages */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "Tutorial CoreData Swift.pages"; sourceTree = "<group>"; };
 		03F841941BB864180021DE4D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		03F841961BB8FF380021DE4D /* IDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				0370878F1B389B1C0080C080 /* Contact.swift */,
 				0370878D1B3899620080C080 /* Car.swift */,
 				03F841941BB864180021DE4D /* Utilities.swift */,
+				03F841961BB8FF380021DE4D /* IDs.swift */,
 				03CA4ABF1B323897009BEA1B /* EjemploCoreData.xcdatamodeld */,
 				03CA4ABB1B323897009BEA1B /* Supporting Files */,
 			);
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03F841971BB8FF380021DE4D /* IDs.swift in Sources */,
 				03D48FB21B3D029500A5E9D7 /* CarManager.swift in Sources */,
 				03E8E8291B37807600ACE454 /* ContactManager.swift in Sources */,
 				03CA4AC31B323897009BEA1B /* ViewController.swift in Sources */,

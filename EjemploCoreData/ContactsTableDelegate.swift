@@ -42,7 +42,7 @@ class ContactsTableDelegate: NSObject, UITableViewDelegate, UITableViewDataSourc
         
         contactToShowCars = refContactManager.contacts[indexPath.row]
         
-        refViewController.performSegueWithIdentifier("IDShowContactCars", sender: refViewController)
+        refViewController.performSegueWithIdentifier(IDShowContactCars, sender: refViewController)
     }
     
     // MARK: - UITableViewDataSource methods
@@ -55,7 +55,7 @@ class ContactsTableDelegate: NSObject, UITableViewDelegate, UITableViewDataSourc
     - SeeAlso: [Website](http://nicogeb.github.io/EjemploCoreData/).
     */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellContact = tableView.dequeueReusableCellWithIdentifier("IDContactCell") as! ContactCell
+        let cellContact = tableView.dequeueReusableCellWithIdentifier(IDContactCell) as! ContactCell
         
         let contact = refContactManager.contacts[indexPath.row]
         
