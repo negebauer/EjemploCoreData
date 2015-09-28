@@ -70,7 +70,7 @@ class CarViewController: UIViewController, UITextFieldDelegate  {
     */
     @IBAction func addNewCar(sender: AnyObject) {
         if TextFieldMileage.text != "" && Int(TextFieldMileage.text!) == nil {
-            let alertController = UIAlertController(title: "Información incorrecta", message:"Escribe solo un numero en kilometraje, o déjalo vacio para que sea 0 automaticamente", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "Incorrect informatio", message:"Mileage onle accepts numbers, or leave it empty to default to 0", preferredStyle: .Alert)
             alertController.addAction(UIAlertAction(title: "ok", style: .Default, handler: nil))
             self.presentViewController(alertController, animated: true, completion: nil)
             return

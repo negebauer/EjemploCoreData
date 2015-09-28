@@ -135,7 +135,6 @@ class CarManager {
             moc?.deleteObject(cars[index])
             owner.takeCar(cars[index])
         }
-        
         saveDatabase()
     }
     

@@ -122,7 +122,6 @@ class ContactManager {
         if index < contacts.count {
             moc?.deleteObject(contacts[index])
         }
-        
         saveDatabase()
     }
     

@@ -88,5 +88,5 @@ class ContactsTableDelegate: NSObject, UITableViewDelegate, UITableViewDataSourc
         }
         tableView.setEditing(false, animated: true)
     }
-    
+
 }
